@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import Home from './Home';
 import ProjectDetails from './ProjectDetails';
 import './index.css';
@@ -20,7 +20,7 @@ const Footer = () => (
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="app-container">
         <div className="main-content">
           <Routes>
@@ -30,7 +30,7 @@ function App() {
         </div>
         <Footer />
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
