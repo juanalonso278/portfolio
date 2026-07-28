@@ -6,7 +6,7 @@ import './index.css';
 const Footer = () => (
   <footer id="contact-footer" className="footer">
     <div className="footer-content">
-      <p className="footer-text">Contact me via </p>
+      <p className="footer-text">CONTACT ME VIA </p>
       <div className="social-links">
         <a href="https://www.linkedin.com/in/juan-alonso-8450481aa/" className="social-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <span className="separator">||</span>
