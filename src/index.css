@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
 :root {
   --bg-color: #050201;
@@ -10,7 +10,7 @@
   --accent: #ff5c00;
   --tag-bg: rgba(200, 200, 200, 0.1);
   --tag-text: #cccccc;
-  --font-family: 'Outfit', sans-serif;
+  --font-family: 'Roboto', sans-serif;
 }
 
 html, body {
@@ -563,9 +563,8 @@ body::after {
 }
 
 .contributor-card {
-  background: rgba(20, 20, 25, 0.6);
+  background: var(--card-bg);
   border: 1px solid var(--card-border);
-  border-left: 4px solid var(--accent);
   border-radius: 12px;
   padding: 1.25rem 1.4rem;
   display: flex;
