@@ -10,9 +10,20 @@ export default function ProjectDetails() {
   // Find project by ID
   const project = projects.find(p => p.id === parseInt(id));
 
+  // Helper to correctly prefix base URL for Vite deployment
+  const resolvePdfUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://')) return url;
+    const base = import.meta.env.BASE_URL || '/';
+    const cleanPath = url.startsWith('/') ? url.slice(1) : url;
+    return base.endsWith('/') ? `${base}${cleanPath}` : `${base}/${cleanPath}`;
+  };
+
+  const resolvedPdfUrl = resolvePdfUrl(project?.pdfUrl);
+
   useEffect(() => {
-    if (project?.pdfUrl) {
-      fetch(project.pdfUrl, { method: 'HEAD' })
+    if (resolvedPdfUrl) {
+      fetch(resolvedPdfUrl, { method: 'HEAD' })
         .then(res => {
           const contentType = res.headers.get('content-type') || '';
           // If HTTP OK and not text/html (which is SPA 404 fallback), the PDF exists!
@@ -24,7 +35,7 @@ export default function ProjectDetails() {
         })
         .catch(() => setPdfStatus('missing'));
     }
-  }, [project?.pdfUrl]);
+  }, [resolvedPdfUrl]);
 
   if (!project) {
     return (
@@ -61,7 +72,7 @@ export default function ProjectDetails() {
       {(project.reportDetails || project.metrics) && (
         <section className="details-section report-meta-section">
           <h2>{project.reportDetails ? 'Senior Design Highlights' : 'Project Highlights & Metrics'}</h2>
-          
+
           {project.reportDetails && (
             <div className="report-meta-grid">
               <div className="meta-card">
@@ -111,7 +122,7 @@ export default function ProjectDetails() {
 
           {(project.metrics || project.reportDetails?.metrics) && (
             <div className="metrics-block">
-              <h3 className="metrics-heading">Measurable Results 📊</h3>
+              <h3 className="metrics-heading">Measurable Results </h3>
               <div className="metrics-grid">
                 {(project.metrics || project.reportDetails.metrics).map((m, idx) => (
                   <div key={idx} className="metric-box">
@@ -142,7 +153,7 @@ export default function ProjectDetails() {
 
       {project.videoDemos && (
         <section className="details-section video-demos-section">
-          <h2>Project Demonstrations & Video Documentation 🎥</h2>
+          <h2>Project Demonstrations & Video Documentation </h2>
           <div className="video-demos-grid">
             {project.videoDemos.map((demo, idx) => (
               <div key={idx} className={`video-demo-card ${demo.isShort ? 'short-video-card' : ''}`}>
@@ -170,10 +181,10 @@ export default function ProjectDetails() {
       {project.pdfUrl && (
         <section className="details-section pdf-section">
           <div className="pdf-header-bar">
-            <h2>{project.pdfTitle || 'PDF Viewer & Documentation'}</h2>
+            <h2>{project.pdfTitle || 'Marco Polo Report'}</h2>
             {pdfStatus === 'available' && (
               <a
-                href={project.pdfUrl}
+                href={resolvedPdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="pdf-download-btn"
@@ -185,7 +196,7 @@ export default function ProjectDetails() {
           <div className="pdf-viewer-frame">
             {pdfStatus === 'available' ? (
               <iframe
-                src={`${project.pdfUrl}#toolbar=1`}
+                src={`${resolvedPdfUrl}#toolbar=1`}
                 title={`${project.title} PDF Report`}
                 className="pdf-embed"
               />
