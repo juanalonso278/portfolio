@@ -25,7 +25,7 @@ export const marcoPolo = {
   ],
   synopsis: 'A custom-engineered handheld tracking device delivering high-precision spatial positioning using Ultra-Wideband (UWB) time-of-flight measurements alongside GPS on a custom 4-layer PCB.',
   description: ' Maintaining awareness of loved ones’ whereabouts in busy or open environments—such as parks, events, or public gatherings—can be challenging. To help address this, we are developing a wearable tracking system that provides real-time, high-precision distance measurements using ultrawide band (UWB) technology. A primary unit defines a maximum distance threshold, and when exceeded, the system alerts users and provides directional guidance back using GPS-based redirection. This approach ensures accurate, low latency tracking without reliance on a constant network connection. As an optional feature, a companion mobile application enhances the user experience by visualizing movement data and providing additional location-based context via cellular connectivity and a Maps API. Our system prioritizes reliability, simplicity, and independence, making it well-suited for families, children, and friends looking to stay safely connected. ',
-  tags: ['uwb', 'gps', 'esp32', 'spi', 'uart', 'pcb', 'c++', 'embedded', 'hardware'],
+  tags: ['uwb', 'gps', 'esp32', 'spi', 'uart', 'pcb', 'c/c++', 'embedded', 'hardware'],
   features: [
     'Ultra-Wideband (UWB) Time-of-Flight spatial distance measurements (99.1% accuracy)',
     'Integrated GPS for broader geographic positioning & fallback tracking',

@@ -72,7 +72,7 @@ body::after {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem;
+  padding: 4rem 2rem 120px 2rem;
   box-sizing: border-box;
 }
 
@@ -99,12 +99,15 @@ body::after {
 }
 
 .footer {
-  flex-shrink: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
   width: 100%;
-  padding: 3rem 2rem;
+  padding: 1.5rem 2rem;
   border-top: 1px solid var(--card-border);
-  background: rgba(5, 2, 1, 0.8);
-  margin-top: auto;
+  background: rgba(5, 2, 1, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 100;
   box-sizing: border-box;
 }
 
@@ -954,6 +957,25 @@ body::after {
   }
 }
 
+/* Project Status Badge */
+.project-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(255, 92, 0, 0.3);
+}
 
-
-
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(255,255,255,0.8);
+}

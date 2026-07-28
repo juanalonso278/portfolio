@@ -13,6 +13,12 @@ const ProjectCard = ({ project }) => {
         </div>
       )}
       <h2>{project.title}</h2>
+      {project.status && (
+        <div className="project-status-badge">
+          <span className="status-dot"></span>
+          {project.status}
+        </div>
+      )}
       <p>{project.synopsis}</p>
       <div className="project-tags">
         {project.tags.map(tag => (

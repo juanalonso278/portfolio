@@ -56,6 +56,12 @@ export default function ProjectDetails() {
 
       <header className="details-header">
         <h1>{project.title}</h1>
+        {project.status && (
+          <div className="project-status-badge">
+            <span className="status-dot"></span>
+            {project.status}
+          </div>
+        )}
         <div className="project-tags">
           {project.tags.map(tag => (
             <span key={tag} className="project-tag">{tag}</span>
