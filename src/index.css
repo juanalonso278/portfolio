@@ -72,7 +72,7 @@ body::after {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 4rem 2rem 120px 2rem;
+  padding: 4rem 2rem;
   box-sizing: border-box;
 }
 
@@ -99,15 +99,12 @@ body::after {
 }
 
 .footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  flex-shrink: 0;
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 3rem 2rem;
   border-top: 1px solid var(--card-border);
-  background: rgba(5, 2, 1, 0.95);
-  backdrop-filter: blur(10px);
-  z-index: 100;
+  background: rgba(5, 2, 1, 0.8);
+  margin-top: auto;
   box-sizing: border-box;
 }
 
