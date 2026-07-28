@@ -4,7 +4,7 @@ import ProjectDetails from './ProjectDetails';
 import './index.css';
 
 const Footer = () => (
-  <footer className="footer">
+  <footer id="contact-footer" className="footer">
     <div className="footer-content">
       <p className="footer-text">Contact me via </p>
       <div className="social-links">
@@ -19,9 +19,14 @@ const Footer = () => (
 );
 
 function App() {
+  const scrollToFooter = () => {
+    document.getElementById('contact-footer')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <HashRouter>
       <div className="app-container">
+        <button className="floating-contact-btn" onClick={scrollToFooter}>Contact</button>
         <div className="main-content">
           <Routes>
             <Route path="/" element={<Home />} />
