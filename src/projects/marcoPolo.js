@@ -1,6 +1,28 @@
+import prototypeImg from '../assets/marco-polo-prototype.png';
+import level0Img from '../assets/marco-polo-level0.png';
+import abstractionImg from '../assets/marco-polo-abstraction.png';
+
 export const marcoPolo = {
   id: 6,
   title: 'Marco Polo: Handheld UWB & GPS Tracking Device',
+  thumbnail: prototypeImg,
+  images: [
+    {
+      title: 'Final Prototype',
+      description: 'The assembled 3D housing featuring the custom PCB, E-Ink display, and dual-action rotary encoder.',
+      url: prototypeImg
+    },
+    {
+      title: 'Level 0 Implementation',
+      description: 'High-level system block diagram detailing inputs, outputs, and module interconnections.',
+      url: level0Img
+    },
+    {
+      title: 'System Abstraction Layer',
+      description: 'Architectural representation of the firmware, hardware, and transport layers within the ESP32 tracking system.',
+      url: abstractionImg
+    }
+  ],
   synopsis: 'A custom-engineered handheld tracking device delivering high-precision spatial positioning using Ultra-Wideband (UWB) time-of-flight measurements alongside GPS on a custom 4-layer PCB.',
   description: ' Maintaining awareness of loved ones’ whereabouts in busy or open environments—such as parks, events, or public gatherings—can be challenging. To help address this, we are developing a wearable tracking system that provides real-time, high-precision distance measurements using ultrawide band (UWB) technology. A primary unit defines a maximum distance threshold, and when exceeded, the system alerts users and provides directional guidance back using GPS-based redirection. This approach ensures accurate, low latency tracking without reliance on a constant network connection. As an optional feature, a companion mobile application enhances the user experience by visualizing movement data and providing additional location-based context via cellular connectivity and a Maps API. Our system prioritizes reliability, simplicity, and independence, making it well-suited for families, children, and friends looking to stay safely connected. ',
   tags: ['uwb', 'gps', 'e-ink', 'pcb', 'c++', 'embedded', 'hardware'],

@@ -7,6 +7,11 @@ const ProjectCard = ({ project }) => {
   const navigate = useNavigate();
   return (
     <div className="project-card" onClick={() => navigate(`/project/${project.id}`)}>
+      {project.thumbnail && (
+        <div className="project-thumbnail">
+          <img src={project.thumbnail} alt={`${project.title} thumbnail`} />
+        </div>
+      )}
       <h2>{project.title}</h2>
       <p>{project.synopsis}</p>
       <div className="project-tags">

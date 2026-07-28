@@ -151,6 +151,23 @@ export default function ProjectDetails() {
         </section>
       )}
 
+      {project.images && (
+        <section className="details-section images-section">
+          <h2>System Architecture & Diagrams 📷</h2>
+          <div className="images-stack">
+            {project.images.map((img, idx) => (
+              <div key={idx} className="slide-card">
+                <img src={img.url} alt={img.title} />
+                <div className="image-info">
+                  <h3>{img.title}</h3>
+                  {img.description && <p>{img.description}</p>}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {project.videoDemos && (
         <section className="details-section video-demos-section">
           <h2>Project Demonstrations & Video Documentation </h2>
