@@ -983,12 +983,10 @@ body::after {
   top: 2rem;
   right: 2rem;
   z-index: 1000;
-  background: rgba(5, 2, 1, 0.8);
-  backdrop-filter: blur(8px);
+  background: transparent;
   color: var(--text-secondary);
-  border: 1px solid var(--card-border);
+  border: none;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
   font-family: inherit;
   font-weight: 400;
   font-size: 1rem;
@@ -999,8 +997,6 @@ body::after {
 .floating-contact-btn:hover {
   transform: translateY(-2px);
   color: var(--accent);
-  border-color: var(--card-border-hover);
-  background: rgba(255, 92, 0, 0.1);
 }
 
 @media (max-width: 768px) {
