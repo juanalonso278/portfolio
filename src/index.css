@@ -65,6 +65,7 @@ body::after {
   flex-direction: column;
   min-height: 100vh;
   box-sizing: border-box;
+  position: relative;
 }
 
 .main-content {
@@ -979,7 +980,7 @@ body::after {
 
 /* Floating Contact Button */
 .floating-contact-btn {
-  position: fixed;
+  position: absolute;
   top: 2rem;
   right: 2rem;
   z-index: 1000;
