@@ -1,6 +1,28 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { projects } from './data';
+import mermaid from 'mermaid';
+import TrackmaniaArchitecture from './components/TrackmaniaArchitecture';
+
+const Mermaid = ({ chart }) => {
+  const ref = useRef(null);
+
+  useEffect(() => {
+    mermaid.initialize({ 
+      startOnLoad: true, 
+      theme: 'dark',
+      fontFamily: 'inherit'
+    });
+    if (ref.current && chart) {
+      const id = 'mermaid-' + Math.random().toString(36).substring(2, 9);
+      mermaid.render(id, chart).then(({ svg }) => {
+        if (ref.current) ref.current.innerHTML = svg;
+      }).catch(e => console.error('Mermaid render error:', e));
+    }
+  }, [chart]);
+
+  return <div ref={ref} className="mermaid-container" style={{ display: 'flex', justifyContent: 'center', margin: '2rem 0', background: 'var(--surface-color)', padding: '1.5rem', borderRadius: '12px' }} />;
+};
 
 export default function ProjectDetails() {
   const { id } = useParams();
@@ -241,6 +263,15 @@ export default function ProjectDetails() {
       {project.architectureSections ? (
         <section className="details-section">
           <h2>Architecture & Engineering Design Deep-Dive 🏗️</h2>
+          
+          {project.mermaidDiagram && (
+            <Mermaid chart={project.mermaidDiagram} />
+          )}
+
+          {project.useCustomArchitecture && (
+            <TrackmaniaArchitecture />
+          )}
+
           <div className="architecture-grid">
             {project.architectureSections.map((sec, idx) => (
               <div key={idx} className="architecture-card">
